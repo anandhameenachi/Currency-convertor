@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Currency Converter</title>
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .background {
+      background: linear-gradient(45deg, #ff6347, #ff69b4, #4169e1, #32cd32);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    @keyframes gradient {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+    
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      width: 100%;
+    }
+
+    .converter {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 400px;
+    }
+
+    h2 {
+      color: #333;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    input[type="number"],
+    select {
+      width: calc(100% - 20px);
+      padding: 10px;
+      margin: 5px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      font-size: 16px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    #result {
+      font-weight: bold;
+      margin-top: 20px;
+      font-size: 18px;
+      color: #333;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<div class="background">
+  <div class="container">
+    <div class="converter">
+      <h2>Currency Converter</h2>
+      <label for="amount">Enter Amount:</label>
+      <input type="number" id="amount">
+      <label for="from">From Currency:</label>
+      <select id="from">
+        <option value="USD">USD - United States Dollar</option>
+        <option value="EUR">EUR - Euro</option>
+        <option value="GBP">GBP - British Pound Sterling</option>
+        <option value="AUD">AUD - Australian Dollar</option>
+        <option value="CAD">CAD - Canadian Dollar</option>
+        <option value="JPY">JPY - Japanese Yen</option>
+        <option value="CHF">CHF - Swiss Franc</option>
+        <option value="CNY">CNY - Chinese Yuan</option>
+        <option value="INR">INR - Indian Rupee</option>
+        <option value="SGD">SGD - Singapore Dollar</option>
+        <option value="KRW">KRW - South Korean Won</option>
+        <option value="NZD">NZD - New Zealand Dollar</option>
+        <option value="HKD">HKD - Hong Kong Dollar</option>
+        <option value="SEK">SEK - Swedish Krona</option>
+        <option value="NOK">NOK - Norwegian Krone</option>
+      </select>
+      <label for="to">To Currency:</label>
+      <select id="to">
+        <option value="USD">USD - United States Dollar</option>
+        <option value="EUR">EUR - Euro</option>
+        <option value="GBP">GBP - British Pound Sterling</option>
+        <option value="AUD">AUD - Australian Dollar</option>
+        <option value="CAD">CAD - Canadian Dollar</option>
+        <option value="JPY">JPY - Japanese Yen</option>
+        <option value="CHF">CHF - Swiss Franc</option>
+        <option value="CNY">CNY - Chinese Yuan</option>
+        <option value="INR">INR - Indian Rupee</option>
+        <option value="SGD">SGD - Singapore Dollar</option>
+        <option value="KRW">KRW - South Korean Won</option>
+        <option value="NZD">NZD - New Zealand Dollar</option>
+        <option value="HKD">HKD - Hong Kong Dollar</option>
+        <option value="SEK">SEK - Swedish Krona</option>
+        <option value="NOK">NOK - Norwegian Krone</option>
+      </select>
+      <button onclick="convert()">Convert</button>
+      <div id="result"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function convert() {
+    var amount = document.getElementById("amount").value;
+    var fromCurrency = document.getElementById("from").value;
+    var toCurrency = document.getElementById("to").value;
+
+    // Here you would typically call an API to get the conversion rate
+    // For simplicity, let's assume a static conversion rate
+    var conversionRate = 1.2; // Example: 1 USD = 1.2 EUR
+
+    var result = amount * conversionRate;
+
+    document.getElementById("result").innerText = "Converted Amount: " + result.toFixed(2) + " " + toCurrency;
+  }
+</script>
+
+</body>
+</html>
